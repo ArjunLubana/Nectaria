@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+<main id="content" class="content" role="main">
+	<div class="wraps">
+		<img src="{% static 'img/shadow.png' %}" class="wrapshadow">
+		<div class="grid">
+			<div class="grid-item">
+				{% for post in posts %}
+				<article class="post">
+					
+					<h2 class="post-title"><a href="article.html">{{ post.title }}</a></h2>
+					</header>
+					<section class="post-excerpt">
+					<p>{{ post.short_description }}<a class="read-more" href="/retro-is-the-new-modern/">&raquo;</a>
+					</p>
+					</section>
+					<footer class="post-meta">
+					<img class="author-thumb" src="{% static 'img/gravatar.jpg' %}" alt="David" nopin="nopin"/>
+					<a href="author.html">{{ post.author }}</a>
+					<time class="post-date" datetime="2016-12-18">{{ post.date_created }}</time>
+					
+				</article>
+				{% endfor %}
+			</div>
+		</div>
+		<nav class="pagination" role="navigation">
+		<span class="page-number">Page 1 of 2</span>
+		<a class="older-posts" href="page2.html">Older Posts &rarr;</a>
+		</nav>
+	</div>
+	</main>
+{% endblock main %}
